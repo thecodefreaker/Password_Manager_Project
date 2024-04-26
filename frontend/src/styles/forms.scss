@@ -1,0 +1,102 @@
+#app {
+  .form {
+    display: block;
+    text-align: center;
+    padding: 50px 0;
+
+    form {
+      display: inline-block;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+      width: 75%;
+
+      h1 {
+        margin-bottom: 50px;
+      }
+
+      label:not([for="terms_and_conditions"]) {
+        display: block;
+        margin: 30px 0;
+
+        span, input, textarea {
+          color: $accountWhite;
+        }
+
+        input, textarea {
+          display: block;
+          margin: 5px 0;
+          padding: 4px;
+          width: 100%;
+
+          border: 0;
+          outline: 0;
+          background: $black;
+          border-bottom: 1px solid $borderColor;
+        }
+
+        input, textarea {
+          font-size: 16px;
+          font-family: $fontFamily;
+        }
+      }
+
+      .checkbox {
+        margin: 20px 0;
+
+        [type="checkbox"] {
+          width: 14px;
+          height: 14px;
+          margin-right: 20px;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          -o-appearance: none;
+          appearance: none;
+          outline: 1px solid gray;
+          box-shadow: none;
+          font-size: 0.8em;
+          text-align: center;
+          line-height: 1em;
+          background: $black;
+        }
+
+        input[type="checkbox"]:checked {
+          background-color: $white;
+        }
+      }
+
+      .form-error {
+        color: $errorColor;
+        height: 30px;
+        padding-top: 5px;
+      }
+
+      .backend-errors {
+        margin: 50px 0;
+        color: $errorColor;
+        list-style: none;
+      }
+
+      .backend-success {
+        margin-top: 50px;
+        color: green;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  #app {
+    .form {
+      form {
+        width: 35%;
+
+        label:not([for="terms_and_conditions"]) {
+          input, textarea {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}

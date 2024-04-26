@@ -1,0 +1,25 @@
+.type-select {
+  position: fixed;
+  z-index: 100;
+  bottom: 30px;
+  right: 20px;
+
+  select {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    color: $white;
+
+    border: 1px solid $borderColor;
+    outline: 0;
+    background-color: $black;
+
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: $white;
+      color: $black;
+      cursor: pointer;
+    }
+  }
+}

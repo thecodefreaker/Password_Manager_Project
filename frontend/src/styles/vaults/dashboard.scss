@@ -1,0 +1,361 @@
+.dashboard {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  .categories {
+    position: fixed;
+    top: 65px;
+    width: 100%;
+    background-color: $black;
+    z-index: 1000;
+    overflow-y: scroll;
+    max-height: 100%;
+
+    .navigation {
+      .burger-icon {
+        display: block;
+        color: white;
+        background-color: $black;
+        border: 1px solid $borderColor;
+        border-top: 0;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .burger-icon:hover {
+        background-color: $white;
+        color: black;
+      }
+
+      ul {
+        display: none;
+        list-style-type: none;
+        margin-top: 15px;
+        padding: 0;
+
+        li {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $white;
+          cursor: pointer;
+
+          p {
+            display: block;
+            padding: 16px 16px;
+            text-decoration: none;
+          }
+
+          span {
+            opacity: 0;
+
+            &.active {
+              opacity: 1;
+            }
+
+            &.category-item-count {
+              opacity: 1;
+            }
+          }
+
+          &:hover {
+            background-color: $hoverBackgroundColor;
+            color: $hoverColor;
+          }
+
+          &.active {
+            background-color: $hoverColor;
+            color: $black;
+          }
+        }
+      }
+    }
+  }
+
+  .logins {
+    display: block;
+
+    &.active {
+      display: none;
+    }
+
+    margin-top: 116px;
+    flex-grow: 4;
+    flex-basis: 0;
+
+    .logins-container {
+      position: relative;
+
+      .login {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        border-bottom: 1px solid $borderColor;
+
+        > div {
+          margin: 20px;
+
+          img {
+            width: 25px;
+          }
+        }
+
+        p {
+          margin: 20px;
+        }
+
+        &:hover {
+          background-color: $hoverBackgroundColor;
+        }
+      }
+    }
+  }
+
+  .account {
+    flex-grow: 10;
+    flex-basis: 0;
+    display: block;
+    text-align: center;
+    padding-top: 50px;
+    margin-top: 75px;
+
+    form {
+      .back {
+        cursor: pointer;
+        margin: 10px 0;
+      }
+
+      .categories-select {
+        width: auto;
+      }
+
+      display: inline-block;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+      width: 85%;
+
+      .detail-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+          cursor: pointer;
+          padding: 5px;
+          border: 1px solid $borderColor;
+          transition: all 0.3s;
+          font-size: 16px;
+
+          &:hover {
+            color: $black;
+            background-color: $white;
+          }
+
+          &:active {
+            background-color: gray;
+          }
+        }
+      }
+
+      .category-label {
+        height: 30px;
+        margin: 20px 0;
+
+        p {
+          display: inline-block;
+          font-style: italic;
+          color: $black;
+          background-color: $white;
+        }
+      }
+
+      label {
+        display: block;
+        margin: 50px 0;
+
+        &:hover + .input-cta-container {
+          opacity: 1;
+        }
+
+        span, input, textarea, select {
+          color: $accountWhite;
+        }
+
+        input, textarea, select {
+          display: block;
+          margin: 5px 0;
+          padding: 4px;
+          width: 100%;
+
+          border: 0;
+          outline: 0;
+          background: $black;
+          border-bottom: 1px solid $borderColor;
+        }
+
+        select {
+          width: 20%;
+        }
+
+        input, textarea, select {
+          font-size: 16px;
+          font-family: $fontFamily;
+        }
+      }
+
+      .input-cta-container {
+        position: relative;
+        float: right;
+        margin-top: -90px;
+
+        .input-cta {
+          display: inline-block;
+          text-align: center;
+          margin: 0 2px;
+          cursor: pointer;
+          padding: 5px;
+          border: 1px solid $borderColor;
+          transition: all 0.3s;
+          font-size: 16px;
+
+          &:hover {
+            color: $black;
+            background-color: $white;
+          }
+
+          &:active {
+            background-color: gray;
+          }
+
+          &#toggle-password {
+            &.show-password {
+              &::after {
+                content: "Hide";
+              }
+            }
+
+            &.hide-password {
+              &::after {
+                content: "Show";
+              }
+            }
+          }
+        }
+
+        &.input-cta-container-form {
+          opacity: 1;
+          margin-top: -125px;
+        }
+      }
+
+      .form-error {
+        color: $errorColor;
+        height: 30px;
+        padding-top: 5px;
+      }
+
+      .backend-errors {
+        margin: 50px 0;
+        color: $errorColor;
+        list-style: none;
+      }
+
+      .backend-success {
+        margin-top: 50px;
+        color: green;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .dashboard {
+    flex-direction: row;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+
+    .categories {
+      @include hide-scrollbar;
+      border-right: 1px solid $borderColor;
+    }
+
+    .logins {
+      @include hide-scrollbar;
+
+      &.active {
+        display: block;
+      }
+
+      border-right: 1.5px solid $borderColor;
+
+      .logins-container {
+        .login {
+          height: 80px;
+        }
+      }
+    }
+
+    .account {
+      @include hide-scrollbar;
+
+      form {
+        width: 75%;
+
+        label {
+          input, textarea, select {
+            font-size: 18px;
+          }
+        }
+
+        .input-cta-container {
+          opacity: 0;
+
+          &:hover {
+            opacity: 1;
+          }
+
+          &.input-cta-container-form {
+            opacity: 1;
+            margin-top: -125px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .dashboard {
+    .categories {
+      position: relative;
+      flex-grow: 3;
+      flex-basis: 0;
+      border-right: 1px solid $borderColor;
+
+      align-items: center;
+
+      .navigation {
+        width: 100%;
+
+        ul {
+          display: block;
+        }
+      }
+    }
+
+    .logins {
+      margin-top: 65px;
+    }
+  }
+}

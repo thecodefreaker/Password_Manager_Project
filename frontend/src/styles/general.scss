@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $black;
+  color: $white;
+  font-family: $fontFamily;
+  font-size: 16px;
+
+  #app {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  body {
+    font-size: 18px;
+
+    #app {
+      &.dashboard-view {
+        overflow-y: hidden;
+      }
+    }
+  }
+}

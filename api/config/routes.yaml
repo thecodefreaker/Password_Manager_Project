@@ -1,0 +1,100 @@
+index:
+  path: /
+  controller: App\Controller\DefaultController::index
+
+authentication_register:
+  path: /authentication/register
+  controller: App\Controller\RegistrationController:register
+
+authentication_login:
+  path: /authentication/login
+
+authentication_logout:
+  path: /authentication/logout
+
+vaults:
+  path: /vaults
+  controller: App\Controller\VaultController:list
+  methods: ["GET"]
+
+vaults_create:
+  path: /vaults
+  controller: App\Controller\VaultController::create
+  methods: ["POST"]
+
+vaults_update:
+  path: /vaults/{id}
+  controller: App\Controller\VaultController::update
+  requirements:
+    id: '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'
+  methods: ["PUT"]
+
+vaults_delete:
+  path: /vaults/{id}
+  controller: App\Controller\VaultController::delete
+  requirements:
+    id: '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'
+  methods: ["DELETE"]
+
+vaults_items:
+  path: /vaults/{id}/items
+  controller: App\Controller\VaultController::listItems
+  requirements:
+    id: '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'
+    userId: '\d+'
+  methods: ["GET"]
+
+logins_create:
+  path: /logins
+  controller: App\Controller\LoginController::create
+  methods: ["POST"]
+
+logins_update:
+  path: /logins/{id}
+  controller: App\Controller\LoginController::update
+  requirements:
+    id: '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'
+  methods: ["PUT"]
+
+logins_delete:
+  path: /logins/{id}
+  controller: App\Controller\LoginController::delete
+  requirements:
+    id: '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'
+  methods: ["DELETE"]
+
+notes_create:
+  path: /notes
+  controller: App\Controller\NoteController::create
+  methods: ["POST"]
+
+notes_update:
+  path: /notes/{id}
+  controller: App\Controller\NoteController::update
+  requirements:
+    id: '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'
+  methods: ["PUT"]
+
+notes_delete:
+  path: /notes/{id}
+  controller: App\Controller\NoteController::delete
+  requirements:
+    id: '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'
+  methods: ["DELETE"]
+
+categories:
+  path: /categories
+  controller: App\Controller\CategoryController:list
+  methods: ["GET"]
+
+categories_create:
+  path: /categories
+  controller: App\Controller\CategoryController::create
+  methods: ["POST"]
+
+categories_delete:
+  path: /categories/{id}
+  controller: App\Controller\CategoryController::delete
+  requirements:
+    id: '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'
+  methods: ["DELETE"]
